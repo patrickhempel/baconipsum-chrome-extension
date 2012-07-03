@@ -1,0 +1,23 @@
+{
+	"name" : "Bacon Ipsum Extension",
+	"version" : "0.1",
+	"manifest_version" : 2,
+	"description" : "A simple Extension which works against the http://baconipsum.com JSON API",
+	"browser_action" :{
+		"default_icon" : "icon.png"
+	},
+	"permissions" : [
+		"http://baconipsum.com/api/",
+		"contextMenus",
+		"tabs"
+	],
+  	"background": {
+    	"scripts": ["baconipsum.js"]
+  	},
+	"content_scripts" : [
+		{
+			"matches" : ["http://*/*", "https://*/*"],
+			"js" : ["baconipsum_content.js"]
+		}
+	]
+}
